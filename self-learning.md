@@ -1,7 +1,7 @@
 ## 📋 Study Checklist
 
-- [ ] [HTTP Protocol in Go](#http-protocol-in-go)
-- [ ] [Linux Fundamentals](#linux-fundamentals)
+- [x] [HTTP Protocol in Go](#http-protocol-in-go)
+- [x] [Linux Fundamentals](#linux-fundamentals)
 - [ ] [Web Security (CORS & HTTPS/TLS)](#web-security-cors--httpstls)
 - [ ] [TypeScript](#typescript)
 - [ ] [Testing in Go](#testing-in-go)
@@ -22,8 +22,8 @@
 
 | # | Topic                           | Week                  | Schedule                              | Status |
 |---|---------------------------------|-----------------------|---------------------------------------|--------|
-| 1 | HTTP Protocol in Go             | Week 1 (Apr 26–May 2) | Mon–Fri 19:00–20:30, Sun 13:00–15:00 | [ ] |
-| 2 | Linux Fundamentals              | Week 1 (Apr 26–May 2) | Mon–Fri 19:00–20:30, Sun 13:00–15:00 | [ ] |
+| 1 | HTTP Protocol in Go             | Week 1 (Apr 26–May 2) | Mon–Fri 19:00–20:30, Sun 13:00–15:00 | [x] |
+| 2 | Linux Fundamentals              | Week 1 (Apr 26–May 2) | Mon–Fri 19:00–20:30, Sun 13:00–15:00 | [x] |
 | 3 | Web Security (CORS & HTTPS/TLS) | Week 2 (May 3 - 9)    | Mon–Fri 19:00–20:30, Sun 13:00–15:00 | [ ] |
 | 4 | TypeScript                      | Week 2 (May 3 - 9)    | Mon–Fri 19:00–20:30, Sun 13:00–15:00 | [ ] |
 | 5 | Testing in Go                   | Week 3 (May 10 – 16)  | Mon–Fri 19:00–20:30, Sun 13:00–15:00 | [ ] |
