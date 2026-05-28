@@ -1,0 +1,18 @@
+[Unit]
+Description=Flight Booking API
+After=network.target redis.service
+Wants=redis.service
+
+[Service]
+Type=simple
+User=www-data
+WorkingDirectory=/opt/flight-booking/api
+ExecStart=/opt/flight-booking/api/bin/server
+Restart=on-failure
+RestartSec=5s
+Environment=PORT=8080
+Environment=REDIS_ADDR=localhost:6379
+Environment=ALLOWED_ORIGIN=https://104-154-23-198.sslip.io
+
+[Install]
+WantedBy=multi-user.target

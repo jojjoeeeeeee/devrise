@@ -1,0 +1,11 @@
+=== Booking Report (generated: 2026-05-28 10:15:54) ===
+
+Status Summary:
+  CONFIRMED : 1
+  PENDING   : 1
+  CANCELLED : 1
+
+Total Revenue (CONFIRMED): 12500.00 THB
+
+Expired PENDING Bookings (payment overdue):
+  bk_002  AB1234  deadline: 2026-03-01T10:00:00Z

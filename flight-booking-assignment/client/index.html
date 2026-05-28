@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flight Booking</title>
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+      body {
+        font-family: system-ui, sans-serif;
+        background: #f0f4f8;
+        color: #1a202c;
+        min-height: 100vh;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 2rem 1rem;
+      }
+
+      .card {
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 24px rgba(0,0,0,.08);
+        padding: 2rem;
+        width: 100%;
+        max-width: 600px;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        color: #2b6cb0;
+      }
+
+      .form-group {
+        margin-bottom: 1rem;
+      }
+
+      label {
+        display: block;
+        font-size: .85rem;
+        font-weight: 600;
+        margin-bottom: .3rem;
+        color: #4a5568;
+      }
+
+      input, select {
+        width: 100%;
+        padding: .55rem .75rem;
+        border: 1px solid #cbd5e0;
+        border-radius: 6px;
+        font-size: .95rem;
+        background: #fff;
+        transition: border-color .15s;
+      }
+
+      input:focus, select:focus {
+        outline: none;
+        border-color: #3182ce;
+        box-shadow: 0 0 0 3px rgba(49,130,206,.15);
+      }
+
+      .row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+
+      .section-title {
+        font-size: .8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: .05em;
+        color: #718096;
+        margin: 1.5rem 0 .75rem;
+        padding-bottom: .4rem;
+        border-bottom: 1px solid #e2e8f0;
+      }
+
+      button[type="submit"] {
+        width: 100%;
+        margin-top: 1.5rem;
+        padding: .75rem;
+        background: #2b6cb0;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background .15s;
+      }
+
+      button[type="submit"]:hover { background: #2c5282; }
+      button[type="submit"]:disabled { background: #90cdf4; cursor: not-allowed; }
+
+      #result {
+        margin-top: 1.5rem;
+        padding: 1rem;
+        border-radius: 8px;
+        font-size: .9rem;
+        white-space: pre-wrap;
+        word-break: break-all;
+        display: none;
+      }
+
+      #result.success {
+        background: #f0fff4;
+        border: 1px solid #9ae6b4;
+        color: #276749;
+        display: block;
+      }
+
+      #result.error {
+        background: #fff5f5;
+        border: 1px solid #feb2b2;
+        color: #9b2c2c;
+        display: block;
+      }
+
+      .result-label {
+        font-weight: 700;
+        margin-bottom: .5rem;
+      }
+
+      .booking-summary {
+        display: grid;
+        gap: .3rem;
+      }
+
+      .booking-summary span { font-size: .85rem; }
+      .booking-summary strong { color: #1a202c; }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1>✈ Flight Booking</h1>
+
+      <form id="booking-form">
+        <div class="section-title">Flight Details</div>
+
+        <div class="form-group">
+          <label for="flightId">Flight ID</label>
+          <input
+            type="text"
+            id="flightId"
+            name="flightId"
+            placeholder="fl_8a2b3c4d-5e6f-7a8b-9c0d"
+            required
+          />
+        </div>
+
+        <div class="row">
+          <div class="form-group">
+            <label for="cabin">Cabin</label>
+            <select id="cabin" name="cabin" required>
+              <option value="economy">Economy</option>
+              <option value="business">Business</option>
+              <option value="first">First</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="fareClass">Fare Class</label>
+            <input type="text" id="fareClass" name="fareClass" placeholder="M" maxlength="1" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="seats">Seat(s) <span style="font-weight:400;color:#718096">(comma-separated)</span></label>
+          <input type="text" id="seats" name="seats" placeholder="14A" required />
+        </div>
+
+        <div class="section-title">Passenger</div>
+
+        <div class="row">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" placeholder="Somchai" required />
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName" placeholder="Jaidee" required />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group">
+            <label for="dateOfBirth">Date of Birth</label>
+            <input type="date" id="dateOfBirth" name="dateOfBirth" required />
+          </div>
+          <div class="form-group">
+            <label for="nationality">Nationality (3-letter)</label>
+            <input type="text" id="nationality" name="nationality" placeholder="THA" maxlength="3" required />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group">
+            <label for="passportNumber">Passport Number</label>
+            <input type="text" id="passportNumber" name="passportNumber" placeholder="AA1234567" required />
+          </div>
+          <div class="form-group">
+            <label for="passportExpiry">Passport Expiry</label>
+            <input type="date" id="passportExpiry" name="passportExpiry" required />
+          </div>
+        </div>
+
+        <div class="section-title">Contact</div>
+
+        <div class="row">
+          <div class="form-group">
+            <label for="contactEmail">Email</label>
+            <input type="email" id="contactEmail" name="contactEmail" placeholder="somchai@example.com" required />
+          </div>
+          <div class="form-group">
+            <label for="contactPhone">Phone</label>
+            <input type="tel" id="contactPhone" name="contactPhone" placeholder="+66812345678" required />
+          </div>
+        </div>
+
+        <button type="submit" id="submit-btn">Book Flight</button>
+      </form>
+
+      <div id="result"></div>
+    </div>
+
+    <script type="module" src="./frontend.ts"></script>
+  </body>
+</html>

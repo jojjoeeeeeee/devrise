@@ -1,0 +1,19 @@
+{
+  "name": "flight-booking-client",
+  "version": "1.0.0",
+  "module": "index.html",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "bun --hot index.html",
+    "build": "bun build index.html --outdir dist",
+    "book": "bun run book.ts",
+    "typecheck": "bunx tsc --noEmit && bunx tsc -p tsconfig.web.json --noEmit"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}
